@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>API</title>
+
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="this is my page">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="../css/material.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/mobile.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script type="text/javascript" src="../js/material.min.js"></script>
+	<script type="text/javascript" src="../../jquery.js"></script>
+	<script type="text/javascript" src="../js/mobile.js"></script>
+	<script type="text/javascript" src="../js/mobile_media.js"></script>
+</head>
+<body>
+<div class="index-loading">
+	<div  id="loading">
+		<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+	</div>
+</div>
+
+
+<div class="page-content" id="page-menu-header">
+	<span class="menu-folder">全部文件</span>
+</div>
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	<header class="mdl-layout__header" id="all-folders">
+		<div class="mdl-layout__header-row">
+			<!-- Title -->
+			<span class="mdl-layout-title" id="mobile-folder-title">全部文件</span>
+			<!-- Add spacer, to align navigation to the right -->
+			<div class="mdl-layout-spacer"></div>
+			<!-- Navigation -->
+		</div>
+	</header>
+
+	<div class="mdl-layout__drawer">
+		<span class="mdl-layout-title">API</span>
+		<nav class="mdl-navigation">
+			<a class="mdl-navigation__link mobile-classify" href="javascript:void(0)" type="all" >全部文件</a>
+			<a class="mdl-navigation__link mobile-classify" href="javascript:void(0)" type="picture" onclick="return reloadMedia('image', 'external');">图片</a>
+			<a class="mdl-navigation__link mobile-classify" href="javascript:void(0)" type="music" onclick="return reloadMedia('audio', 'external');">音乐</a>
+			<a class="mdl-navigation__link mobile-classify" href="javascript:void(0)" type="video" onclick="return reloadMedia('video', 'external');">视频</a>
+		</nav>
+	</div>
+	<main class="mdl-layout__content mobile-main">
+		<div class="page-content" id="mobile-all">
+			<!-- 文件夹分类 -->
+			<div class="mobile-folder">
+				<header class="mobile-folder-header">
+					<div class="mdl-cell mdl-cell--12-col mobile-filelist-title">
+						文件夹列表
+					</div>
+				</header>
+				<div class="mobile-folder-content">
+					<div class="mdl-grid mobile-cell" id="mobile-folder-cell">
+						<div class="mdl-cell mdl-cell--2-col mobile-folder-info">
+							<div class="mobile-folder-img">
+								<svg x="0px" y="0px" height="24px" width="24px" focusable="false" viewBox="0 0 24 24" fill="#8f8f8f">
+									<g>
+										<path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"></path>
+										<path d="M0 0h24v24H0z" fill="none"></path>
+									</g>
+								</svg>
+							</div>
+							<div class="mobile-folder-name">kxh</div>
+							<div class="mobile-folder-operation" >
+								<svg x="0px" y="0px" width="22px" height="22px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+									<g id="Header">
+										<g>
+											<rect x="-618" y="-3256" fill="none" width="1400" height="3600"></rect>
+										</g>
+									</g>
+									<g id="Label"></g><g id="Icon">
+										<g>
+											<rect fill="none" width="24" height="24"></rect>
+											<path fill="#bdbdbd" d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10c5.5,0,10-4.5,10-10S17.5,2,12,2z M13,17h-2v-6h2V17z M13,9h-2V7h2V9z"></path>
+										</g>
+									</g>
+									<g id="Grid" display="none">
+										<g display="inline">
+										</g>
+									</g>
+								</svg>
+							</div>
+						</div>
+						<div class="mdl-cell mdl-cell--2-col mobile-folder-info">
+							<div class="mobile-folder-img">
+								<svg x="0px" y="0px" height="24px" width="24px" focusable="false" viewBox="0 0 24 24" fill="#8f8f8f">
+									<g>
+										<path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"></path>
+										<path d="M0 0h24v24H0z" fill="none"></path>
+									</g>
+								</svg>
+							</div>
+							<div class="mobile-folder-name">kxh</div>
+							<div class="mobile-folder-operation">
+								<svg x="0px" y="0px" width="22px" height="22px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+									<g id="Header">
+										<g>
+											<rect x="-618" y="-3256" fill="none" width="1400" height="3600"></rect>
+										</g>
+									</g>
+									<g id="Label"></g><g id="Icon">
+										<g>
+											<rect fill="none" width="24" height="24"></rect>
+											<path fill="#bdbdbd" d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10c5.5,0,10-4.5,10-10S17.5,2,12,2z M13,17h-2v-6h2V17z M13,9h-2V7h2V9z"></path>
+										</g>
+									</g>
+									<g id="Grid" display="none">
+										<g display="inline">
+										</g>
+									</g>
+								</svg>
+							</div>
+						</div>
+						<div class="mdl-cell mdl-cell--2-col mobile-folder-info">
+							<div class="mobile-folder-img">
+								<svg x="0px" y="0px" height="24px" width="24px" focusable="false" viewBox="0 0 24 24" fill="#8f8f8f">
+									<g>
+										<path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"></path>
+										<path d="M0 0h24v24H0z" fill="none"></path>
+									</g>
+								</svg>
+							</div>
+							<div class="mobile-folder-name">kxh</div>
+							<div class="mobile-folder-operation">
+								<svg x="0px" y="0px" width="22px" height="22px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+									<g id="Header">
+										<g>
+											<rect x="-618" y="-3256" fill="none" width="1400" height="3600"></rect>
+										</g>
+									</g>
+									<g id="Label"></g><g id="Icon">
+										<g>
+											<rect fill="none" width="24" height="24"></rect>
+											<path fill="#bdbdbd" d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10c5.5,0,10-4.5,10-10S17.5,2,12,2z M13,17h-2v-6h2V17z M13,9h-2V7h2V9z"></path>
+										</g>
+									</g>
+									<g id="Grid" display="none">
+										<g display="inline">
+										</g>
+									</g>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 文件分类 -->
+			<div class="mobile-folder">
+				<header class="mobile-file-header">
+					<div class="mdl-cell mdl-cell--12-col mobile-filelist-title">
+						文件列表
+					</div>
+				</header>
+				<div class="mobile-file-content">
+					<div class="mdl-grid mobile-cell" id="mobile-file-cell">
+						<div class="mdl-cell mdl-cell--2-col mobile-file-setting">
+							<div class="mobile-file-view">
+								<img src = "../../icon/file-pdf.svg" class="mobile-file-view-img" >
+							</div>
+							<div class="mobile-file-info">
+								<div class="mobile-folder-img">
+									<img src = "../../icon/file-pdf.svg" >
+								</div>
+								<div class="mobile-folder-name">kxh</div>
+								<div class="mobile-folder-operation">
+									<svg x="0px" y="0px" width="22px" height="22px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+										<g id="Header">
+											<g>
+												<rect x="-618" y="-3256" fill="none" width="1400" height="3600"></rect>
+											</g>
+										</g>
+										<g id="Label"></g><g id="Icon">
+											<g>
+												<rect fill="none" width="24" height="24"></rect>
+												<path fill="#bdbdbd" d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10c5.5,0,10-4.5,10-10S17.5,2,12,2z M13,17h-2v-6h2V17z M13,9h-2V7h2V9z"></path>
+											</g>
+										</g>
+										<g id="Grid" display="none">
+											<g display="inline">
+											</g>
+										</g>
+									</svg>
+								</div>
+							</div>
+						</div>
+
+						<div class="mdl-cell mdl-cell--2-col mobile-file-setting">
+							<div class="mobile-file-view">
+								<img src = "../../icon/file-pdf.svg" class="mobile-file-view-img" >
+							</div>
+							<div class="mobile-file-info">
+								<div class="mobile-folder-img">
+									<img src = "../../icon/file-pdf.svg" >
+								</div>
+								<div class="mobile-folder-name">kxh</div>
+								<div class="mobile-folder-operation">
+									<svg x="0px" y="0px" width="22px" height="22px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+										<g id="Header">
+											<g>
+												<rect x="-618" y="-3256" fill="none" width="1400" height="3600"></rect>
+											</g>
+										</g>
+										<g id="Label"></g><g id="Icon">
+											<g>
+												<rect fill="none" width="24" height="24"></rect>
+												<path fill="#bdbdbd" d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10c5.5,0,10-4.5,10-10S17.5,2,12,2z M13,17h-2v-6h2V17z M13,9h-2V7h2V9z"></path>
+											</g>
+										</g>
+										<g id="Grid" display="none">
+											<g display="inline">
+											</g>
+										</g>
+									</svg>
+								</div>
+							</div>
+						</div>
+
+						<div class="mdl-cell mdl-cell--2-col mobile-file-setting">
+							<div class="mobile-file-view">
+								<img src = "../../icon/file-pdf.svg" class="mobile-file-view-img" >
+							</div>
+							<div class="mobile-file-info">
+								<div class="mobile-folder-img">
+									<img src = "../../icon/file-pdf.svg" >
+								</div>
+								<div class="mobile-folder-name">kxh</div>
+								<div class="mobile-folder-operation" >
+									<svg x="0px" y="0px" width="22px" height="22px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+										<g id="Header">
+											<g>
+												<rect x="-618" y="-3256" fill="none" width="1400" height="3600"></rect>
+											</g>
+										</g>
+										<g id="Label"></g><g id="Icon">
+											<g>
+												<rect fill="none" width="24" height="24"></rect>
+												<path fill="#bdbdbd" d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10c5.5,0,10-4.5,10-10S17.5,2,12,2z M13,17h-2v-6h2V17z M13,9h-2V7h2V9z"></path>
+											</g>
+										</g>
+										<g id="Grid" display="none">
+											<g display="inline">
+											</g>
+										</g>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page-content" id="mobile-classify">
+			<div class="mdl-grid" id="mobile-classify-info">
+				<div class ="mdl-cell mdl-cell--2-col">
+					<img class="classify-img" src = "icon/Android.ico" />
+				</div>
+				<div class ="mdl-cell mdl-cell--2-col">
+					<img class="classify-img" src = "icon/Android.ico" />
+				</div>
+				<div class ="mdl-cell mdl-cell--2-col">
+					<img class="classify-img" src = "icon/Android.ico" />
+				</div>
+				<div class ="mdl-cell mdl-cell--2-col">
+					<img class="classify-img" src = "icon/Android.ico" />
+				</div>
+
+
+				<div class ="mdl-cell mdl-cell--4-col">
+					<img class="classify-audio" src = "icon/Android.ico" />
+					<span class = "classify-audio-name" >12313245132132</span>
+				</div>
+			</div>
+		</div>
+	</main>
+</div>
+
+
+<div class = "classify-view">
+	<span class="view-close">x</span>
+	<a href = "" target="_top"class="download"> </a>
+	<img class="view-img" src ="icon/Android.ico">
+	<video class="audio">
+		<source src="" />
+	</video>
+</div>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" id="file-op">
+	<div id="file-op-contain">
+		<nav class="mdl-navigation">
+			<ul>
+				<li class="mdl-navigation__link mobile-folder-op" type="delete">删除</li>
+				<li class="mdl-navigation__link mobile-folder-op" type="download">下载</li>
+				<li class="mdl-navigation__link mobile-folder-op" type="rename">重命名</li>
+				<li class="mdl-navigation__link mobile-folder-op" type="copy">复制</li>
+				<li class="mdl-navigation__link mobile-folder-op" type="cut">移动</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<div class="file-copy">
+	<div class="file-copy-contain">
+		<ul>
+			<li id= "mobile-cancel" >取消</li>
+			<li id = "mobile-paste" >粘贴</li>
+			<li id = "mobile-newFolder" >新建文件夹</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I-Jetty</title>
+
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="css/material.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="js/material.min.js"></script>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/media.js"></script>
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">i-jetty</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="javascript:void(0)" type="all">我的文件</a>
+            <a class="mdl-navigation__link" href="javascript:void(0)" type="picture" onclick="return reloadMedia('image', 'external');">图片</a>
+            <a class="mdl-navigation__link" href="javascript:void(0)" type="music" onclick="return reloadMedia('audio', 'internal');">音乐</a>
+            <a class="mdl-navigation__link" href="javascript:void(0)" type="video" onclick="return reloadMedia('video', 'internal');">视频</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content" id="main">
+        <div class="page-content" id="page-menu-header">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-picture" id="svg-download">
+                <polygon points="2.5,9 7.5,9 7.5,2 12.5,2 12.5,9 17.5,9 10,14" />
+                <polygon points="2.5,16 17.5,16 17.5,18 2.5,18" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewbox="0 0 20 20" class="svg-picture" id="svg-delete">
+                <path d="M4,17c0,1.104,0.896,2,2,2h8c1.104,0,2-0.896,2-2V5H4V17z M16,2h-2.5l-1-1h-5l-1,1H4C3.447,2,3,2.447,3,3v1h14V3   C17,2.447,16.552,2,16,2z"></path>
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewbox="0 0 20 20" class="svg-picture" id="svg-rename">
+                <polygon points="14,2 16,0 20,4 18,6"/>
+                <polygon points="0,20 2,14 12,4 16,8 6,18"/>
+            </svg>
+            <span class="menu-folder">全部文件</span>
+        </div>
+
+        <div class="page-content">
+            <div class="mdl-grid index-cell-content">
+                <div class="mdl-cell mdl-cell--6-col">文件名称</div>
+                <div class="mdl-cell mdl-cell--2-col">上传时间</div>
+                <div class="mdl-cell mdl-cell--2-col">文件大小</div>
+                <div class="mdl-cell mdl-cell--2-col">文件下载</div>
+            </div>
+        </div>
+
+        <div class="page-content" id="file-list">
+            <div id='index-loading' class='mdl-progress mdl-js-progress mdl-progress__indeterminate'></div>
+        </div>
+
+
+        <div class="page-content" id="classify-list">
+        </div>
+
+    </main>
+</div>
+
+<!-- 复制和剪切-->
+<div class="mdl-grid" id="index-moveTo">
+    <div id='index-loading-move' class='mdl-progress mdl-js-progress mdl-progress__indeterminate'></div>
+
+    <div id="index-moveTo-container">
+        <div class="index-moveTo-container-header">
+            <span class="index-moveTo-title">移动到</span>
+        </div>
+        <div id="index-moveTo-container-list">
+            <ul class="demo-list-icon mdl-list index-moveTo-list" id="index-list-father">
+                <li id="index-moveTo-list" class="mdl-list__item index-list-set">
+                    <div class="index-list-set-header">
+                        <span class='index-show-folder index-file-add' id="all-folder"></span>
+                        <span class='index-file-close' ></span>
+                        <span class='index-folder-move'>全部文件</span>
+                    </div>
+
+                    <ul class="demo-list-icon mdl-list index-moveTo-list">
+                        <li  class="mdl-list__item index-list-set">
+                            <div class="index-list-set-header">
+                                <img class='index-show-folder' src=''/>
+                                <span class='index-folder-move'>1</span>
+                            </div>
+
+                            <ul class="demo-list-icon mdl-list index-moveTo-list">
+                                <li  class="mdl-list__item index-list-set">
+                                    <div class="index-list-set-header">
+                                        <img class='index-show-folder' src=''/>
+                                        <span class='index-folder-move'>2</span>
+                                    </div>
+                                </li>
+                                <li  class="mdl-list__item index-list-set">
+                                    <div class="index-list-set-header">
+                                        <img class='index-show-folder' src=''/>
+                                        <span class='index-folder-move'>3</span>
+                                    </div>
+                                </li>
+                                <li  class="mdl-list__item index-list-set">
+                                    <div class="index-list-set-header">
+                                        <img class='index-show-folder' src=''/>
+                                        <span class='index-folder-move'>4</span>
+                                    </div>
+                                </li>
+                            </ul>
+
+
+                        </li>
+                        <li  class="mdl-list__item index-list-set">
+                            <div class="index-list-set-header">
+                                <img class='index-show-folder' src=''/>
+                                <span class='index-folder-move'>5</span>
+                            </div>
+                            <ul class="demo-list-icon mdl-list index-moveTo-list" >
+                                <li  class="mdl-list__item index-list-set">
+                                    <div class="index-list-set-header">
+                                        <img class='index-show-folder' src=''/>
+                                        <span class='index-folder-move'>6</span>
+                                    </div>
+                                </li>
+                                <li  class="mdl-list__item index-list-set">
+                                    <div class="index-list-set-header">
+                                        <img class='index-show-folder' src=''/>
+                                        <span class='index-folder-move'>7</span>
+                                    </div>
+                                </li>
+                                <li  class="mdl-list__item index-list-set">
+                                    <div class="index-list-set-header">
+                                        <img class='index-show-folder' src=''/>
+                                        <span class='index-folder-move'>8</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li  class="mdl-list__item index-list-set">
+                            <div class="index-list-set-header">
+                                <img class='index-show-folder' src=''/>
+                                <span class='index-folder-move'>9</span>
+                            </div>
+                            <ul class="demo-list-icon mdl-list index-moveTo-list">
+                                <li  class="mdl-list__item index-list-set">
+                                    <div class="index-list-set-header">
+                                        <img class='index-show-folder' src=''/>
+                                        <span class='index-folder-move'>10</span>
+                                    </div>
+                                </li>
+                                <li  class="mdl-list__item index-list-set">
+                                    <div class="index-list-set-header">
+                                        <img class='index-show-folder' src=''/>
+                                        <span class='index-folder-move'>11</span>
+                                    </div>
+                                </li>
+                                <li  class="mdl-list__item index-list-set">
+                                    <div class="index-list-set-header">
+                                        <img class='index-show-folder' src=''/>
+                                        <span class='index-folder-move'>12</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="index-copy-button">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id= "button-newFolder">
+                新建文件夹
+            </button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id= "button-sure">
+                确定
+            </button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id= "button-cancel">
+                取消
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<!-- 自定义右键菜单 -->
+<ul class="demo-list-item mdl-list" id="contentmenu">
+    <li class="mdl-list__item index-file-menu">
+	    	<span class="mdl-list__item-primary-content file-download" id="file-download">
+	      		下　载
+	    	</span>
+    </li>
+    <li class="mdl-list__item index-file-menu">
+		    <span class="mdl-list__item-primary-content file-rename" id="file-rename">
+		    	重命名
+		    </span>
+    </li>
+    <li class="mdl-list__item index-file-menu">
+		    <span class="mdl-list__item-primary-content file-delete" id="file-delete">
+		      	删　除
+		    </span>
+    </li>
+
+    <li class="mdl-list__item index-file-menu">
+		    <span class="mdl-list__item-primary-content file-delete" id="file-copy">
+		      	复制到
+		    </span>
+    </li>
+    <li class="mdl-list__item index-file-menu">
+		    <span class="mdl-list__item-primary-content file-delete" id="file-cut">
+		      	移动到
+		    </span>
+    </li>
+</ul>
+
+<!-- 自定义右键菜单 -->
+<ul class="demo-list-item mdl-list" id="documentmenu">
+    <li class="mdl-list__item index-file-menu">
+	    	<span class="mdl-list__item-primary-content file-newfolder" id="file-newfolder">
+	      		新建文件夹
+	    	</span>
+    </li>
+    <li class="mdl-list__item index-file-menu">
+	    	<span class="mdl-list__item-primary-content file-upload">
+	      		上 传 文 件
+	    	</span>
+        <input type="file" value="" id = "uploadfile" multiple/>
+    </li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/webapp/console.iml" filepath="$PROJECT_DIR$/webapp/console.iml" />
+      <module fileurl="file://$PROJECT_DIR$/console-parent.iml" filepath="$PROJECT_DIR$/console-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apk/i-jetty-console-installer.iml" filepath="$PROJECT_DIR$/apk/i-jetty-console-installer.iml" />
+    </modules>
+  </component>
+</project>
